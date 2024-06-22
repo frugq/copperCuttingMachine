@@ -159,7 +159,6 @@ async function setup() {
     test2Schedule = cuttingFileSchedule(test2Data);//setupで呼び出す
     mainSchedule = cuttingFileSchedule(mainData, true);//setupで呼び出す
     print("test1", test1Schedule);
-    print(test2Data);
     print("test2", test2Schedule);
     print("main", mainSchedule);
 	let cnv = createCanvas(windowWidth, windowHeight);
@@ -526,8 +525,9 @@ function wheelMoved(e){
     }
 }
 
-function fileInputed(){
-
+function fileInputed(file){
+    mainSchedule = cuttingFileSchedule(file.data.split("\r\n"), true);
+    print("main", mainSchedule);
 }
 
 function roundString(val){
