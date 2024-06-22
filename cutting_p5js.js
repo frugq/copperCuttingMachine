@@ -25,6 +25,7 @@ let holderUp, holderDown;
 let knifeUp, knifeMid, knifeDown;
 let setEnterBtn, calibrateEnterBtn;
 let test1Btn, test2Btn, mainBtn;
+let test1TopBox, test1RightBox, test2TopBox, test2RightBox;
 let speedBox;
 let fileInput;
 let test1Finished = false, test2Finished = false;
@@ -197,9 +198,11 @@ async function setup() {
     knifeUp = createInput("100", "Number").position(700, 128).size(45, 20);
     speedBox = createInput("3", "Number").position(700, 158).size(45, 20);
     calibrateEnterBtn = createButton("ok").position(700, 196).size(45, 20).mousePressed(calibrateEnterBtnPressed).mouseReleased(keyReleased);
-    topBox = createInput("2.0", "Number").position(700, 216).size(45, 20);
-    rightBox = createInput("2.0", "Number").position(700, 236).size(45, 20);
-	({ port, reader, writer } = await getPort());
+    test1TopBox = createInput("2.0", "Number").position(700, 216).size(45, 20);
+    Test1RightBox = createInput("2.0", "Number").position(700, 236).size(45, 20);
+    test2TopBox = createInput("0.0", "Number").position(700, 256).size(45, 20);
+    Test2RightBox = createInput("0.0", "Number").position(700, 276).size(45, 20);
+	//({ port, reader, writer } = await getPort());
 	loop();
 }
 
@@ -217,8 +220,8 @@ async function draw() {
     
     text("send", 10, 470);
     text("receive", 150, 470);
-    let top = parseFloat(topBox.value());
-    let right = parseFloat(rightBox.value());
+    let top = parseFloat(test1TopBox.value());
+    let right = parseFloat(test1RightBox.value());
     shiftX = -(top - right) / 2;
     shiftY = -(top + right - 4) / 2;
     drawComData();
