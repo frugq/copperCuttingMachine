@@ -1,0 +1,6 @@
+holderDown 85
+holderUp 110
+knifeDown 148
+knifeMid 136
+knifeUp 100
+speed 3
